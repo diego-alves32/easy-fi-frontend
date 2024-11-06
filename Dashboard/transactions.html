@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyFi - Lista de Transações</title>
+    <link rel="stylesheet" href="../Style/style.css">
+    <link rel="stylesheet" href="../Style/transactions.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../Assets/Logo/logo-branca.svg" id="logo" alt="logo">
+            <h1>EasyFi</h1>
+        </div>
+
+        <div class="title">
+            <h2>Lista de Transações</h2>
+        </div>
+    </header>
+
+    <div class="sidebar">
+        <a href="#">
+            <img src="../Assets/Icons/perfil-azul.png" alt="icon">
+        </a>
+
+        <div class="menu-dash">
+            <a href="dashboard.html">
+                <img src="../Assets/Icons/painel-azul.png" alt="icon">
+            </a>
+
+            <a href="transactions.html">
+                <img src="../Assets/Icons/tabela-azul.png" alt="icon">
+            </a>
+
+            <a href="transaction-form.html">
+                <img src="../Assets/Icons/adicionar-azul.png" alt="icon">
+            </a>
+        </div>
+
+        <a href="../index.html" id="logout">
+            <img src="../Assets/Icons/logout-azul.png" alt="icon">
+        </a>
+    </div>
+
+
+    <main class="transactions">
+        <h3>Pesquisar Transações</h3>
+        <div class="search-bar">
+            <div class="uses">
+                <select id="filterType" class="custom-select">
+                    <option value="">Escolha o filtro</option>
+                    <option value="categoria">Categoria</option>
+                    <option value="id">ID</option>
+                    <option value="data">Data</option>
+                </select>
+    
+                <button id="viewAll">Todas as Transações</button>
+            </div>
+
+            <div class="filters">
+                <select id="categoriaInput" class="custom-select">
+                    <option value="">Categoria</option>
+                    <option value="alimentacao">Alimentação</option>
+                    <option value="vestuario">Vestuário</option>
+                    <option value="transporte">Transporte</option>
+                    <option value="educacao">Educação</option>
+                </select>
+
+                <input type="number" id="idInput" placeholder="ID da Transação">
+
+                <input type="date" id="dateInput" placeholder="Selecione a data">
+            </div>
+
+            <button id="searchButton">Filtrar</button>
+        </div>
+
+        <div id="transactionList">
+            <!-- Resultados das transações filtradas aparecerão aqui -->
+        </div>
+    </main>
+
+    <script src="../Script/transactions.js"></script>
+    >
+</body>
+
+</html>
