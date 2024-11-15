@@ -1,4 +1,21 @@
 function atualizaGrafico({ saldo, totalReceitas, totalDespesas }) {
+  const canvas = document.getElementById("transactionChart");
+  const ctx = canvas.getContext("2d");
+
+  if (totalReceitas === 0 && totalDespesas === 0) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#fff";
+    ctx.textAlign = "center";
+    ctx.fillText(
+      "Nenhum dado disponível para exibir.",
+      canvas.width / 2,
+      canvas.height / 2
+    );
+    return;
+  }
+
   const data = {
     labels: ["Receitas", "Despesas"],
     datasets: [
@@ -42,7 +59,6 @@ function atualizaGrafico({ saldo, totalReceitas, totalDespesas }) {
       },
     },
   };
-
-  const ctx = document.getElementById("transactionChart").getContext("2d");
+  //const ctx = document.getElementById("transactionChart").getContext("2d");
   new Chart(ctx, config);
 }
