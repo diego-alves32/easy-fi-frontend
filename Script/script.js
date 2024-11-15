@@ -1,7 +1,10 @@
-async function buscaDadosFinanceiros() {
+async function buscaDadosFinanceiros(dataInicio, dataFim) {
+  const inicio = dataInicio ? dataInicio : "2024-01-01";
+  const fim = dataFim ? dataFim : new Date().toISOString().split("T")[0];
   try {
+    const usuario = buscarDadosUsuario();
     const response = await fetch(
-      "https://easy-fi-eight.vercel.app/incomes-expenses/buscarExtratoFiltro?userId=1&dataInicio=2024-11-01&dataFim=2024-11-02"
+      `https://easy-fi-eight.vercel.app/incomes-expenses/buscarExtratoFiltro?userId=${usuario.id_usuario}&dataInicio=${inicio}&dataFim=${fim}`
     );
     const data = await response.json();
 
@@ -40,9 +43,17 @@ function trataDadosFinanceiros(data) {
   return { saldo, totalReceitas, totalDespesas };
 }
 
+function buscarDadosUsuario() {
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+  return usuario;
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const data = await buscaDadosFinanceiros();
   const valoresFinanceiros = trataDadosFinanceiros(data);
+  const usuario = buscarDadosUsuario();
+  document.getElementById("nomeUsuario").innerText = `${usuario.nome}`;
 
   if (valoresFinanceiros) {
     atualizaGrafico(valoresFinanceiros);
