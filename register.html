@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Script/auth.js"></script>
+    <script>
+        paginasProtegidasSeNaoLogado();
+    </script>
+    <script src="Script/login-register.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" 
-    rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="Style/login-register.css">
     <title>EasyFi - Registro</title>
 </head>
+
 <body>
     <div class="container">
         <div class="cadastro">
@@ -30,11 +38,12 @@
                 </div>
                 <div class="formulario">
                     <h1 class="title">Criar Conta</h1>
-                    <form action="Dashboard/dashboard.html" method="GET">
-                        <input type="text" placeholder="Nome" required>
-                        <input type="email" placeholder="Email" required>
-                        <input type="password" placeholder="Senha" required>
-                        <input type="password" placeholder="Confirmar senha" required>
+                    <span id="result_alert" style="display: none;"></span>
+                    <form id="formRegistro">
+                        <input type="text" placeholder="Nome" id="nomeUsuario" required>
+                        <input type="email" placeholder="Email" id="emailUsuario" required>
+                        <input type="password" placeholder="Senha" id="senhaUsuario" required>
+                        <input type="password" placeholder="Confirmar senha" id="confirmaSenha" required>
                         <div class="btn-default">
                             <button type="submit">Cadastrar</button>
                         </div>
@@ -51,6 +60,7 @@
         </div>
     </div>
 
-    <script src="Script/login-register.js"></script>
+
 </body>
+
 </html>
