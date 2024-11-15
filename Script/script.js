@@ -1,7 +1,7 @@
 async function buscaDadosFinanceiros() {
   try {
     const response = await fetch(
-      "http://localhost:3057/incomes-expenses/buscarExtratoFiltro?userId=1&dataInicio=2024-11-01&dataFim=2024-11-02"
+      "https://easy-fi-eight.vercel.app/incomes-expenses/buscarExtratoFiltro?userId=1&dataInicio=2024-11-01&dataFim=2024-11-02"
     );
     const data = await response.json();
 

@@ -80,13 +80,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function login(email, senha) {
   try {
-    const response = await fetch("http://localhost:3057/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, senha }),
-    });
+    const response = await fetch(
+      "https://easy-fi-eight.vercel.app/users/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, senha }),
+      }
+    );
 
     const data = await response.json();
 
@@ -98,13 +101,16 @@ async function login(email, senha) {
 
 async function register(nome, email, senha) {
   try {
-    const response = await fetch("http://localhost:3057/users/criarUsuario", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ nome, email, senha }),
-    });
+    const response = await fetch(
+      "https://easy-fi-eight.vercel.app/users/criarUsuario",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ nome, email, senha }),
+      }
+    );
 
     const data = await response.json();
 
