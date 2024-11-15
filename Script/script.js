@@ -50,7 +50,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 document.getElementById("logout")?.addEventListener("click", function (event) {
-  alert("Você foi deslogado com sucesso!");
+  localStorage.removeItem("usuario");
+  window.location.href = "/";
 });
 
 document.getElementById("filterType").addEventListener("change", function () {
